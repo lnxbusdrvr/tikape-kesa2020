@@ -176,7 +176,7 @@ SELECT nimi FROM Elokuvat WHERE vuosi IS NOT 1940;
 ```
 #### Mallivastaus
 ```sql
-SELECT animal, species, size FROM Shrimps WHERE size<20 OR 200<size
+SELECT nimi FROM Elokuvat WHERE vuosi<>1940;
 ```
 
 ---
@@ -446,15 +446,7 @@ SELECT COUNT(DISTINCT yritys) FROM Tyontekijat;
 ## Tehtävä 18 
 Hae jokaisen yrityksen työntekijöiden määrä.
 
-**Taulut**
 
-<table><tbody><tr valign="top"><td><i>Tyontekijat</i><table border=""><tbody><tr><th>id</th><th>nimi</th><th>palkka</th><th>yritys</th></tr><tr><td>1</td><td>Uolevi</td><td>5000</td><td>Google</td></tr><tr><td>2</td><td>Maija</td><td>6000</td><td>Google</td></tr><tr><td>3</td><td>Liisa</td><td>2000</td><td>Amazon</td></tr><tr><td>4</td><td>Kaaleppi</td><td>7500</td><td>Microsoft</td></tr></tbody></table></td></tr></tbody></table>
-
-  
-
-**Haluttu tulos**
-
-<table border=""><tbody><tr><td>Google</td><td>2</td></tr><tr><td>Amazon</td><td>1</td></tr><tr><td>Microsoft</td><td>1</td></tr></tbody></table>
 
 #### Vastauksesi 
 ```sql
@@ -758,15 +750,7 @@ SELECT O.nimi, S.arvosana FROM Opiskelijat O, Kurssit K, Suoritukset S WHERE O.i
 ## Tehtävä 30 
 Hae kaikki suoritukset, joissa arvosana on 4 tai 5.
 
-**Taulut**
 
-<table><tbody><tr valign="top"><td><i>Opiskelijat</i><table border=""><tbody><tr><th>id</th><th>nimi</th></tr><tr><td>1</td><td>Uolevi</td></tr><tr><td>2</td><td>Maija</td></tr><tr><td>3</td><td>Kaaleppi</td></tr></tbody></table></td><td width="20"></td><td><i>Kurssit</i><table border=""><tbody><tr><th>id</th><th>nimi</th></tr><tr><td>1</td><td>Ohpe</td></tr><tr><td>2</td><td>Ohja</td></tr><tr><td>3</td><td>Tira</td></tr><tr><td>4</td><td>Lama</td></tr></tbody></table></td><td width="20"></td><td><i>Suoritukset</i><table border=""><tbody><tr><th>opiskelija_id</th><th>kurssi_id</th><th>arvosana</th></tr><tr><td>1</td><td>1</td><td>3</td></tr><tr><td>1</td><td>2</td><td>4</td></tr><tr><td>2</td><td>1</td><td>2</td></tr><tr><td>2</td><td>4</td><td>5</td></tr><tr><td>3</td><td>3</td><td>4</td></tr></tbody></table></td></tr></tbody></table>
-
-  
-
-**Haluttu tulos**
-
-<table border=""><tbody><tr><td>Uolevi</td><td>Ohja</td><td>4</td></tr><tr><td>Maija</td><td>Lama</td><td>5</td></tr><tr><td>Kaaleppi</td><td>Tira</td><td>4</td></tr></tbody></table>
 
 #### Vastauksesi 
 ```sql
@@ -1167,15 +1151,7 @@ SELECT sana FROM Sanat WHERE LENGTH(sana)<6;
 ## Tehtävä 45 
 Hae sanat järjestettynä ensisijaisesti pituuden mukaan ja toissijaisesti aakkosjärjestyksen mukaan.
 
-**Taulut**
 
-<table><tbody><tr valign="top"><td><i>Sanat</i><table border=""><tbody><tr><th>id</th><th>sana</th></tr><tr><td>1</td><td>banaani</td></tr><tr><td>2</td><td>aakkonen</td></tr><tr><td>3</td><td>cembalo</td></tr></tbody></table></td></tr></tbody></table>
-
-  
-
-**Haluttu tulos**
-
-<table border=""><tbody><tr><td>banaani</td></tr><tr><td>cembalo</td></tr><tr><td>aakkonen</td></tr></tbody></table>
 
 #### Vastauksesi 
 ```sql
@@ -1438,15 +1414,7 @@ SELECT MIN(sana) FROM Sanat;
 ## Tehtävä 55 
 Hae aakkosjärjestyksessä toinen sana. Voit olettaa, että taulussa ei ole kahta samaa sanaa.
 
-**Taulut**
 
-<table><tbody><tr valign="top"><td><i>Sanat</i><table border=""><tbody><tr><th>id</th><th>sana</th></tr><tr><td>1</td><td>apina</td></tr><tr><td>2</td><td>banaani</td></tr><tr><td>3</td><td>cembalo</td></tr></tbody></table></td></tr></tbody></table>
-
-  
-
-**Haluttu tulos**
-
-<table border=""><tbody><tr><td>banaani</td></tr></tbody></table>
 
 #### Vastauksesi 
 ```sql
@@ -1490,15 +1458,7 @@ SELECT sana FROM Sanat ORDER BY sana LIMIT (SELECT COUNT(*)-1 FROM Sanat) OFFSET
 ## Tehtävä 57 
 Hae kaikki sanat, joissa esiintyy i-kirjain.
 
-**Taulut**
 
-<table><tbody><tr valign="top"><td><i>Sanat</i><table border=""><tbody><tr><th>id</th><th>sana</th></tr><tr><td>1</td><td>apina</td></tr><tr><td>2</td><td>banaani</td></tr><tr><td>3</td><td>cembalo</td></tr></tbody></table></td></tr></tbody></table>
-
-  
-
-**Haluttu tulos**
-
-<table border=""><tbody><tr><td>apina</td></tr><tr><td>banaani</td></tr></tbody></table>
 
 #### Vastauksesi 
 ```sql
@@ -1571,15 +1531,7 @@ SELECT sana FROM Sanat WHERE sana LIKE '_p___';
 ## Tehtävä 60 
 Hae kaikki sanat, joissa on tasan kaksi a-kirjainta.
 
-**Taulut**
 
-<table><tbody><tr valign="top"><td><i>Sanat</i><table border=""><tbody><tr><th>id</th><th>sana</th></tr><tr><td>1</td><td>apina</td></tr><tr><td>2</td><td>banaani</td></tr><tr><td>3</td><td>cembalo</td></tr></tbody></table></td></tr></tbody></table>
-
-  
-
-**Haluttu tulos**
-
-<table border=""><tbody><tr><td>apina</td></tr></tbody></table>
 
 #### Vastauksesi 
 ```sql
@@ -1627,15 +1579,7 @@ SELECT K.tunnus, COUNT(O.ryhma_id) FROM Kayttajat K LEFT JOIN Oikeudet O ON K.id
 ## Tehtävä 62 
 Hae jokaisesta ryhmästä tieto, montako käyttäjää siihen kuuluu.
 
-**Taulut**
 
-<table><tbody><tr valign="top"><td><i>Kayttajat</i><table border=""><tbody><tr><th>id</th><th>tunnus</th></tr><tr><td>1</td><td>uolevi</td></tr><tr><td>2</td><td>maija</td></tr><tr><td>3</td><td>kaaleppi</td></tr><tr><td>4</td><td>liisa</td></tr></tbody></table></td><td width="20"></td><td><i>Ryhmat</i><table border=""><tbody><tr><th>id</th><th>nimi</th></tr><tr><td>1</td><td>puput</td></tr><tr><td>2</td><td>kilit</td></tr></tbody></table></td><td width="20"></td><td><i>Oikeudet</i><table border=""><tbody><tr><th>kayttaja_id</th><th>ryhma_id</th></tr><tr><td>1</td><td>1</td></tr><tr><td>2</td><td>1</td></tr><tr><td>3</td><td>1</td></tr><tr><td>3</td><td>2</td></tr></tbody></table></td></tr></tbody></table>
-
-  
-
-**Haluttu tulos**
-
-<table border=""><tbody><tr><td>puput</td><td>3</td></tr><tr><td>kilit</td><td>1</td></tr></tbody></table>
 
 #### Vastauksesi 
 ```sql
@@ -1920,15 +1864,7 @@ SELECT A.haltija, IFNULL(SUM(B.muutos),0) FROM Tilit A LEFT JOIN Tapahtumat B ON
 ## Tehtävä 72 
 Laske Uolevin tilin saldon historia. Tapahtumat ovat järjestyksessä id:n mukaisesti.
 
-**Taulut**
 
-<table><tbody><tr valign="top"><td><i>Tilit</i><table border=""><tbody><tr><th>id</th><th>haltija</th></tr><tr><td>1</td><td>Uolevi</td></tr><tr><td>2</td><td>Maija</td></tr><tr><td>3</td><td>Kaaleppi</td></tr></tbody></table></td><td width="20"></td><td><i>Tapahtumat</i><table border=""><tbody><tr><th>id</th><th>tili_id</th><th>muutos</th></tr><tr><td>1</td><td>1</td><td>500</td></tr><tr><td>2</td><td>2</td><td>300</td></tr><tr><td>3</td><td>1</td><td>-100</td></tr><tr><td>4</td><td>2</td><td>100</td></tr><tr><td>5</td><td>2</td><td>-300</td></tr></tbody></table></td></tr></tbody></table>
-
-  
-
-**Haluttu tulos**
-
-<table border=""><tbody><tr><td>500</td></tr><tr><td>400</td></tr></tbody></table>
 
 #### Vastauksesi 
 ```sql
